@@ -1,4 +1,5 @@
 var mercadopago = require('mercadopago');
+var fs = require('fs');
 
 mercadopago.configure({
     integrator_id: 'dev_24c65fb163bf11ea96500242ac130004',
@@ -80,6 +81,11 @@ module.exports = {
     },
 
     getWebHook: async function(req, res, next) {
-        console.log(req.query)
+        let data = req.query;
+        fs.writeFile('hook.json', JSON.stringify(data), 'utf8', (err) => {
+            if (err) throw err;
+            console.log('The file has been saved!');
+            res.status(200).json("OK");
+          });
     }
 }
