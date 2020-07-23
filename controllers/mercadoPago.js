@@ -84,11 +84,14 @@ module.exports = {
         let data = req.query;
         console.log(JSON.stringify(data));
         console.log(JSON.stringify(req.headers));
+        
         fs.writeFile('hook2.json', JSON.stringify(req.headers), 'utf8', (err) => {
             if (err) throw err;
             console.log('The file has been saved!');
             res.status(200).json("OK");
           });
+
+        res.status(200).json("OK");
     },
 
     getHook: async function(req, res, next){
