@@ -31,7 +31,7 @@ module.exports = {
                 failure: 'dcammarano-mp-ecommerce-nodejs.herokuapp.com/payment/failure'
             },
             notification_url: 'dcammarano-mp-ecommerce-nodejs.herokuapp.com/payment/webhook',
-            auto_return: "all",
+            auto_return: "approved",
             items: [
                 {
                     id: 1234,
@@ -82,7 +82,8 @@ module.exports = {
 
     getWebHook: async function(req, res, next) {
         let data = req.query;
-        fs.writeFile('hook.json', JSON.stringify(data), 'utf8', (err) => {
+        console.log(data);
+        fs.writeFile('hook.json', JSON.stringify(req.headers), 'utf8', (err) => {
             if (err) throw err;
             console.log('The file has been saved!');
             res.status(200).json("OK");
