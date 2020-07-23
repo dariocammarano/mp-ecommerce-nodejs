@@ -87,5 +87,13 @@ module.exports = {
             console.log('The file has been saved!');
             res.status(200).json("OK");
           });
+    },
+
+    getHook: async function(req, res, next){
+        var finalresponse = {};
+        fs.readFile('hook.json', (err, data) => {
+            if (err) throw err;
+            res.status(200).json(JSON.parse(data.toString()));
+        });
     }
 }
