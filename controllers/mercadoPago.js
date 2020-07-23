@@ -81,9 +81,9 @@ module.exports = {
     },
 
     getWebHook: async function(req, res, next) {
-        let data = req.query;
         //console.log(JSON.stringify(data));
-        console.log(JSON.stringify(req.body));
+        res.sendStatus(200);
+        console.log(req.body);
 /*
         fs.writeFile('hook2.json', JSON.stringify(req.headers), 'utf8', (err) => {
             if (err) throw err;
@@ -91,7 +91,6 @@ module.exports = {
             res.status(200).json("OK");
           });
 */
-        res.status(200).json("OK");
     },
 
     getHook: async function(req, res, next){
