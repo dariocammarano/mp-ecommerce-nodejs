@@ -59,7 +59,8 @@ module.exports = {
         };
       
         let mercado = await mercadopago.preferences.create(preference);
-        //console.log(mercado.body.init_point);
+        console.log(preference);
+        console.log(mercado);
         //res.json(mercado);
         res.redirect(mercado.body.init_point);
 
