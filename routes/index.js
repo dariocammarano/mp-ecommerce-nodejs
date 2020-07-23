@@ -14,7 +14,7 @@ res.render('detail', req.query);
 router.get('/payment/success', controller.getBackUrlSuccess);
 router.get('/payment/failure', controller.getBackUrlFailure);
 router.get('/payment/pending', controller.getBackUrlPending);
-router.get('/payment/webhook', controller.getWebHook);
+router.post('/payment/webhook', controller.getWebHook);
 router.get('/hook', controller.getHook);
 
 router.post('/pagar', controller.create);
