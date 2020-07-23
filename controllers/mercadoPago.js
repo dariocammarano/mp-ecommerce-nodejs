@@ -59,37 +59,39 @@ module.exports = {
         };
       
         let mercado = await mercadopago.preferences.create(preference);
-        console.log(mercado.body.init_point);
+        //console.log(mercado.body.init_point);
         //res.json(mercado);
         res.redirect(mercado.body.init_point);
 
     },
     
     getBackUrlSuccess: async function(req, res, next) {
-        console.log(req.query)
+        //console.log(req.query)
         res.render('success', req.query);
     },
 
     getBackUrlFailure: async function(req, res, next) {
-        console.log(req.query)
+        //console.log(req.query)
         res.render('failure', req.query);
     },
     
     getBackUrlPending: async function(req, res, next) {
-        console.log(req.query)
+        //console.log(req.query)
         res.render('pending', req.query);
     },
 
 
     getWebHook: async function(req, res, next) {
-        //console.log(JSON.stringify(data));
-        console.log( 'received webhook',req.body);
 
-        fs.writeFile('hook2.json', JSON.stringify(req.body), 'utf8', (err) => {
-            if (err) throw err;
-            console.log('The file has been saved!');
-            res.status(200).end();
-          });
+        let body = ""; 
+        req.on("data", chunk => {  
+            body += chunk.toString();
+        });
+        req.on("end", () => {  
+            console.log(body, "webhook response"); 
+            res.end("ok");
+        });
+        res.status(200).end();
 
     },
 
