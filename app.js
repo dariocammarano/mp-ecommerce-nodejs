@@ -1,6 +1,5 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
-const bodyParser = require('body-parser');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -19,7 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser);
 
 
 app.use(express.static('assets'));

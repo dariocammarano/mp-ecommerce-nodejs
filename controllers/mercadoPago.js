@@ -87,11 +87,11 @@ module.exports = {
             body += chunk.toString();
         });
         req.on("end", () => {  */
-            console.log(req.body, "webhook response"); 
+        console.log(req.body, "webhook response"); 
         /*res.end("ok");
         });*/
 
-        return res.status(200); 
+        return res.status(200).end(); 
     },
         
 
