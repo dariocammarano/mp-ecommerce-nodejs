@@ -81,19 +81,20 @@ module.exports = {
     },
 
 
-    getWebHook: async function(req, res, next) {
-
-        let body = ""; 
-        req.on("data", chunk => {  
-            body += chunk.toString();
-        });
-        req.on("end", () => {  
-            console.log(body, "webhook response"); 
+    getWebHook: function (req, res) { 
+        if (req.method === "POST") { 
+            let body = ""; 
+            req.on("data", chunk => {  
+                body += chunk.toString();
+            });
+            req.on("end", () => {  
+                console.log(body, "webhook response"); 
             res.end("ok");
-        });
-        res.status(200).end();
-
+            });
+        }
+        return res.status(200); 
     },
+        
 
     getHook: async function(req, res, next){
         var finalresponse = {};
