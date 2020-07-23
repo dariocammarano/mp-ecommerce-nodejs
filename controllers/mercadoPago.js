@@ -83,7 +83,7 @@ module.exports = {
     getWebHook: async function(req, res, next) {
         let data = req.query;
         //console.log(JSON.stringify(data));
-        console.log(JSON.stringify(req));
+        console.log(JSON.stringify(req.body));
 /*
         fs.writeFile('hook2.json', JSON.stringify(req.headers), 'utf8', (err) => {
             if (err) throw err;
