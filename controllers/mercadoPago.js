@@ -83,6 +83,7 @@ module.exports = {
     getWebHook: async function(req, res, next) {
         let data = req.query;
         console.log(data);
+        console.log(req.headers);
         fs.writeFile('hook.json', JSON.stringify(req.headers), 'utf8', (err) => {
             if (err) throw err;
             console.log('The file has been saved!');
