@@ -80,17 +80,17 @@ module.exports = {
         res.render('pending', req.query);
     },
 
+
     getWebHook: async function(req, res, next) {
         //console.log(JSON.stringify(data));
-        res.status(200).send({message: "Recibido correctamente"});
         console.log(req.body);
-/*
-        fs.writeFile('hook2.json', JSON.stringify(req.headers), 'utf8', (err) => {
+
+        fs.writeFile('hook2.json', JSON.stringify(req.body), 'utf8', (err) => {
             if (err) throw err;
             console.log('The file has been saved!');
-            res.status(200).json("OK");
+            res.status(200).end();
           });
-*/
+
     },
 
     getHook: async function(req, res, next){
