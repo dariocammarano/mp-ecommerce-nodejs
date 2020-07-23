@@ -67,17 +67,17 @@ module.exports = {
     
     getBackUrlSuccess: async function(req, res, next) {
         console.log(req.query)
-        res.render('/payment/success', req.query);
+        res.render('success', req.query);
     },
 
     getBackUrlFailure: async function(req, res, next) {
         console.log(req.query)
-        res.render('/payment/failure', req.query);
+        res.render('failure', req.query);
     },
     
     getBackUrlPending: async function(req, res, next) {
         console.log(req.query)
-        res.render('/payment/pending', req.query);
+        res.render('pending', req.query);
     },
 
     getWebHook: async function(req, res, next) {
