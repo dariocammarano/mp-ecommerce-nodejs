@@ -82,9 +82,9 @@ module.exports = {
 
     getWebHook: async function(req, res, next) {
         let data = req.query;
-        console.log(data);
-        console.log(req.headers);
-        fs.writeFile('hook.json', JSON.stringify(req.headers), 'utf8', (err) => {
+        console.log(JSON.stringify(data));
+        console.log(JSON.stringify(req.headers));
+        fs.writeFile('hook2.json', JSON.stringify(req.headers), 'utf8', (err) => {
             if (err) throw err;
             console.log('The file has been saved!');
             res.status(200).json("OK");
@@ -93,7 +93,7 @@ module.exports = {
 
     getHook: async function(req, res, next){
         var finalresponse = {};
-        fs.readFile('hook.json', (err, data) => {
+        fs.readFile('hook2.json', (err, data) => {
             if (err) throw err;
             res.status(200).json(JSON.parse(data.toString()));
         });
